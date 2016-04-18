@@ -186,7 +186,7 @@ Result HTML
     });
 
 
-## Futures
+## Future matters
 
 ### Get and Set DOM property
 * width
@@ -198,7 +198,12 @@ Result HTML
 * Repeat Animation
 * etc...
 
+## Author
+mya-ake
 
+web:http://mya-ake.com/
+
+Twitter:https://twitter.com/mya_ake
 
 ## License
 The MIT License (MIT)
