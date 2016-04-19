@@ -146,7 +146,8 @@ JavaSctipt
         }
     ];
     
-    eld.create("select", eld.selectId("area-select").get(0))
+    eld.selectId("area-select")
+    .createChild("select")
     .createChild("option", params);
 
 Result HTML
@@ -160,6 +161,7 @@ Result HTML
     
     
  #### merge
+ 
  Merge EldObject
  
     eldObj.merge(EldObject...);
