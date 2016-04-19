@@ -12,8 +12,8 @@ Eld.js is a library that is similar to jQuery.
     var eldObj = eld.selectClass(className, [element]);    // Class
     
 ### Create
-    var eldObj = eld.create(tagName, [element]);
-    var eldObj = eld.createEldObject(element);
+    var eldObj = eld.create(tagName, [element]);    // Create DOM and EldObject
+    var eldObj = eld.createEldObject(element);      // Create EldObject
 
 ### Get Elements
     var element = eldObj.elems[index];          // elements
@@ -95,6 +95,7 @@ timing(css animation-timing-function property)
 
 #### event
     eldObj.event("click", clickEventFunction, true);    // add event
+    eldObj.event("click", clickEventFunction);          // add event
     eldObj.event("click", clickEventFunction, false);   // remove event
  
 #### html
