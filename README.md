@@ -158,16 +158,16 @@ Result HTML
             <option value="2">text2</option>
         </select>
     </div>
-    
-    
- #### merge
+
+
+#### merge
  
- Merge EldObject
+Merge EldObject
  
     eldObj.merge(EldObject...);
  
  
- Example
+Example
  
     var eldObj1 = eld.create("div");
     var eldObj2 = eld.create("div");
