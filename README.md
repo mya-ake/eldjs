@@ -57,16 +57,17 @@ For Select List, Radio, Checkbox
 #### class
     eldObj.class();         // get
     eldObj.class("css");    // has class (return boolean)
-    eldObj.class("css", true);      // set
+    eldObj.class("css", true);      // add
     eldObj.class("css", false);     // remove
-    eldObj.class({                  // set
+    eldObj.class({                  // add
         "css": true,
         "css2": true,
     });
-    eldObj.class({                  // set and remove
+    eldObj.class({                  // add and remove
         "css": true,
         "css2": false,
     });
+    eldObj.class("css", "toggle");  // add or remove
 
 #### animate
     eldObj.animate(param, duration, [timing], [delay], [callback]);
@@ -97,6 +98,13 @@ timing(css animation-timing-function property)
     eldObj.event("click", clickEventFunction, true);    // add event
     eldObj.event("click", clickEventFunction);          // add event
     eldObj.event("click", clickEventFunction, false);   // remove event
+
+ Bubbling cancellation
+ 
+    eldObj.event("click", function() {
+        /** processing **/
+        return false;
+    });
  
 #### html
 Rewrite innerHTML.
