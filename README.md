@@ -36,6 +36,7 @@ For Select List, Radio, Checkbox
     eldObj.gval();            // get
     eldObj.gval("value");     // set
     eldObj.gval(["value1", "value2"]);  // set
+    eldObj.gval("value1,value2");       // set
     
 #### style
     eldObj.style();                 // get all
@@ -70,7 +71,7 @@ For Select List, Radio, Checkbox
     eldObj.class("css", "toggle");  // add or remove
 
 #### animate
-    eldObj.animate(param, duration, [timing], [delay], [callback]);
+    eldObj.animate(param, duration, [timing], [delay], [callback], [frame]);
 
 Example
 
@@ -82,6 +83,9 @@ Example
     "2s",               // millisecond or second + "s"
     function() {
         /** Process after animation **/
+    },
+    function() {
+        /** Processing to be executed in the rendering **/
     }
     );
 
@@ -185,6 +189,23 @@ Example
     var eldObj1And2 = eldObj1.merge(eldObj2);
     var eldObj1And2And3 = eldObj1.merge(eldObj2, eldObj3);
 
+#### width
+
+    eldObj.width();         // get
+    eldObj.width("p");      // get padding-right + padding-left 
+    eldObj.width("b");      // get border-right-width + border-left-width 
+    eldObj.width("cpbm");   // get content + padding + border + margin
+
+#### height
+
+    eldObj.height();         // get
+    eldObj.height("m");      // get margin-top + margin-bottom 
+    eldObj.height("cp");      // get content + padding 
+    eldObj.height("cpbm");   // get content + padding + border + margin
+
+#### offset
+
+    eldObj.offset();        // get return {top: topValue, left: leftValue}
 
 ## Method chaining
     
@@ -196,18 +217,17 @@ Example
         "line-height": "1.5em"
     });
 
-
 ## Future matters
-
-### Get and Set DOM property
-* width
-* heigth
-* offset
-* etc...
 
 ### Animation
 * Repeat Animation
 * etc...
+
+### Ajax
+* XMLHttpRequest
+
+### Others
+Thinking.
 
 ## Author
 mya-ake
@@ -215,6 +235,10 @@ mya-ake
 web:http://mya-ake.com/
 
 Twitter:https://twitter.com/mya_ake
+
+## Version
+
+0.10.0 (April 21, 2016)
 
 ## License
 The MIT License (MIT)
