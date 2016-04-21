@@ -71,25 +71,34 @@ For Select List, Radio, Checkbox
     eldObj.class("css", "toggle");  // add or remove
 
 #### animate
-    eldObj.animate(param, duration, [timing], [delay], [callback], [frame]);
+    eldObj.animate(args);
+    
+Arguments
+* param (required)
+* duration
+* easing
+* delay
+* callback
+* frame
 
 Example
 
     eldOjb.animate({
-        "backgroud-color": "blue"
-    },
-    2000,               // millisecond or second + "s"
-    "ease-in-out",
-    "2s",               // millisecond or second + "s"
-    function() {
-        /** Process after animation **/
-    },
-    function() {
-        /** Processing to be executed in the rendering **/
-    }
-    );
+        param: {
+            "backgroud-color": "blue"
+        },
+        duration: 2000,         // millisecond or second + "s"
+        easing: "ease-in-out",
+        delay: "2s",            // millisecond or second + "s"
+        callback: function() {
+            /** Process after animation **/
+        },
+        frame: function() {
+            /** Processing to be executed in the rendering **/
+        }
+    });
 
-timing(css animation-timing-function property)
+easing(css animation-timing-function property)
 * ease  (default)
 * linear
 * ease-in
