@@ -216,6 +216,37 @@ Example
 
     eldObj.offset();        // get return {top: topValue, left: leftValue}
 
+#### ajax
+
+    eld.ajax(args);         // return XHRHttpRequest instance
+
+Arguments
+
+| args | Type | Description | default |
+|:-----|:-----|:------------|:--------|
+| xhr | objcet | your created XHRHttpRequest instance | new XHRHttpRequest() |
+| url | string | request url | - |
+| method | string | request method | POST |
+| param | object | request search parameter | - |
+| header | object | request header | {"Content-Type": "application/json;charset=UTF-8"} |
+| responseType | string | response type | json |
+| timeout | number | time until the time-out | - |
+| timeoutFunction| function | executed at the time of time-out | - |
+| data| - | send data | - |
+| success | function | executed at the time of communication success | - |
+| error | function | executed when the error occurred | - |
+| complete | function | executed at the end of communication | - |
+
+
+abort
+
+    var eldAjax = eld.ajax({
+        url: "http://example.com/",
+        ...
+    });
+    eldAjax.abort();
+
+
 ## Method chaining
     
     eld.create("div")
@@ -229,11 +260,19 @@ Example
 ## Future matters
 
 ### Animation
+* Fade Animation
+* Slide Animation
 * Repeat Animation
 * etc...
 
-### Ajax
-* XMLHttpRequest
+### Event
+* load
+* focus
+* blur
+
+### Get EldObject
+* first
+* last
 
 ### Others
 Thinking.
@@ -247,7 +286,7 @@ Twitter:https://twitter.com/mya_ake
 
 ## Version
 
-0.11.0 (April 21, 2016)
+0.12.1 (April 22, 2016)
 
 ## License
 The MIT License (MIT)
