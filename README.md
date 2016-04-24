@@ -361,7 +361,7 @@ Twitter:https://twitter.com/mya_ake
 
 ## Version
 
-0.12.1 (April 22, 2016)
+0.13.0 (April 24, 2016)
 
 ## License
 The MIT License (MIT)
