@@ -19,6 +19,7 @@ Eld.js is a library that is similar to jQuery.
     var element = eldObj.elems[index];          // elements
     var element = eldObj.get(index);            // elements
     var eldObjNumber = eldObj.getEld(index);    // get index EldObject for EldObject
+    var eldObjFind = eldObj.find(query);        // get query EldObject for EldObject (The same as the eld.select)
     var eldObjParent = eldObj.parent();         // get parent EldObject for EldObject  
     var eldObjChildren = eldObj.children();     // get children EldObject for EldObject
     var eldObjFirst = eldObj.first();           // get first EldObject for EldObject
@@ -28,12 +29,12 @@ Eld.js is a library that is similar to jQuery.
 #### text
     eldObj.text();            // get
     eldObj.text("text");      // set
-    eldObj.text(function() {return "text"});    // set
+    eldObj.text(function(element, index) {return "text"});    // set
 
 #### val
     eldObj.val();               // get
     eldObj.val("value text");   // set
-    eldObj.val(function() {return "value text"});    // set
+    eldObj.val(function(element, index) {return "value text"});    // set
     
 #### gval
 For Select List, Radio, Checkbox
@@ -47,27 +48,27 @@ For Select List, Radio, Checkbox
     eldObj.style();                 // get all
     eldObj.style("color");          // get
     eldObj.style("color", "red");   // set
-    eldObj.style("color", function() {return "red"});   // set
+    eldObj.style("color", function(element, index) {return "red"});   // set
     eldObj.style({"color": "red", "font-size": "20px"});    // set
 
 #### attr
     eldObj.attr("id");          // get
     eldObj.attr("id", "input-text");  // set
-    eldObj.attr("id", function() { return "input-text"});  // set
+    eldObj.attr("id", function(element, index) { return "input-text"});  // set
     eldObj.attr({"id": "input-text", "name": "uesrname"});     // set
 
     
 #### prop
     eldObj.prop("required");    // has attribute (return boolean)
     eldObj.prop("required", true);  // set
-    eldObj.prop("required", function() {return true});      // set
+    eldObj.prop("required", function(element, index) {return true});      // set
     eldObj.prop("required", false); // remove
 
 #### class
     eldObj.class();         // get
     eldObj.class("css");    // has class (return boolean)
     eldObj.class("css", true);      // add
-    eldObj.class("css", function() {return true});      // add
+    eldObj.class("css", function(element, index) {return true});      // add
     eldObj.class("css", false);     // remove
     eldObj.class({                  // add
         "css": true,
@@ -335,19 +336,10 @@ args(Object)
 ## Future matters
 
 ### Animation
-* Fade Animation
-* Slide Animation
 * Repeat Animation
 * etc...
 
-### Event
-* load
-* focus
-* blur
-
-### Get EldObject
-* first
-* last
+### SPA
 
 ### Others
 Thinking.
@@ -361,7 +353,7 @@ Twitter:https://twitter.com/mya_ake
 
 ## Version
 
-0.13.0 (April 24, 2016)
+0.13.1 (April 24, 2016)
 
 ## License
 The MIT License (MIT)
