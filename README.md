@@ -18,17 +18,22 @@ Eld.js is a library that is similar to jQuery.
 ### Get Elements
     var element = eldObj.elems[index];          // elements
     var element = eldObj.get(index);            // elements
+    var eldObjNumber = eldObj.getEld(index);    // get index EldObject for EldObject
     var eldObjParent = eldObj.parent();         // get parent EldObject for EldObject  
     var eldObjChildren = eldObj.children();     // get children EldObject for EldObject
-
+    var eldObjFirst = eldObj.first();           // get first EldObject for EldObject
+    var eldObjLast = eldObj.last();             // get last EldObject for EldObject
+    
 ### EldObject Functions
 #### text
     eldObj.text();            // get
     eldObj.text("text");      // set
+    eldObj.text(function() {return "text"});    // set
 
 #### val
     eldObj.val();               // get
     eldObj.val("value text");   // set
+    eldObj.val(function() {return "value text"});    // set
     
 #### gval
 For Select List, Radio, Checkbox
@@ -42,23 +47,27 @@ For Select List, Radio, Checkbox
     eldObj.style();                 // get all
     eldObj.style("color");          // get
     eldObj.style("color", "red");   // set
+    eldObj.style("color", function() {return "red"});   // set
     eldObj.style({"color": "red", "font-size": "20px"});    // set
 
 #### attr
     eldObj.attr("id");          // get
     eldObj.attr("id", "input-text");  // set
+    eldObj.attr("id", function() { return "input-text"});  // set
     eldObj.attr({"id": "input-text", "name": "uesrname"});     // set
 
     
 #### prop
     eldObj.prop("required");    // has attribute (return boolean)
     eldObj.prop("required", true);  // set
+    eldObj.prop("required", function() {return true});      // set
     eldObj.prop("required", false); // remove
 
 #### class
     eldObj.class();         // get
     eldObj.class("css");    // has class (return boolean)
     eldObj.class("css", true);      // add
+    eldObj.class("css", function() {return true});      // add
     eldObj.class("css", false);     // remove
     eldObj.class({                  // add
         "css": true,
@@ -73,7 +82,7 @@ For Select List, Radio, Checkbox
 #### animate
     eldObj.animate(args);
     
-Arguments
+args(Object)
 * param (required)
 * duration
 * easing
@@ -220,22 +229,24 @@ Example
 
     eld.ajax(args);         // return XHRHttpRequest instance
 
-Arguments
+args(Object)
 
 | args | Type | Description | default |
 |:-----|:-----|:------------|:--------|
 | xhr | objcet | your created XHRHttpRequest instance | new XHRHttpRequest() |
 | url | string | request url | - |
-| method | string | request method | POST |
+| method | string | request method | "POST" |
 | param | object | request search parameter | - |
 | header | object | request header | {"Content-Type": "application/json;charset=UTF-8"} |
-| responseType | string | response type | json |
+| responseType | string | response type | "json" |
 | timeout | number | time until the time-out | - |
 | timeoutFunction| function | executed at the time of time-out | - |
 | data| - | send data | - |
 | success | function | executed at the time of communication success | - |
 | error | function | executed when the error occurred | - |
 | complete | function | executed at the end of communication | - |
+| username | string | authentication | "" |
+| password | string | authentication | "" |
 
 
 abort
@@ -245,6 +256,70 @@ abort
         ...
     });
     eldAjax.abort();
+
+#### load
+window onload event
+
+    eld.load(func);
+    
+#### focus
+    
+    eldObj.focus();         // focus last element
+    eldObj.focus(number);   // focus number element
+
+
+#### blur
+
+    eld.blur();         // all element
+    eldObj.blur();      // in element
+
+#### interval
+
+    eld.interval(args);
+
+args(Object)
+
+| args | Type | Description | required |
+|:-----|:-----|:------------|:--------|
+| func | function | processing function | true |
+| time | number | processing interval | true |
+| count | number | repeat count | false |
+| callback | function | callback function | false |
+
+
+#### show
+
+    eldObj.show([display]);     // set style display (default "block")
+
+#### hide
+
+    eldObj.hide();              // set style display "none"
+
+
+#### fadeIn
+
+    eldObj.fadeIn(duration);
+    
+#### fadeOut
+    
+    eldObj.fadeOut(duration);
+
+
+#### slideIn
+
+    eldObj.slideIn({
+        duration: 2000,     // (default 0)
+        x: 200px,           // x-axis (default 0)
+        y: 300px            // y-axis (default 0)
+    });
+
+#### slideOut
+
+    eldObj.slideOut({
+        duration: 2000,     // (default 0)
+        x: 200px,           // x-axis (default 0)
+        y: 300px            // y-axis (default 0)
+    });
 
 
 ## Method chaining
