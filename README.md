@@ -36,6 +36,10 @@ Eld.js is a library that is similar to jQuery.
     eldObj.val("value text");   // set
     eldObj.val(function(element, index) {return "value text"});    // set
     
+#### nval
+    eldObj.nval();              //get return number or NaN
+
+   
 #### gval
 For Select List, Radio, Checkbox
 
@@ -128,6 +132,9 @@ easing(css animation-timing-function property)
         /** processing **/
         return false;
     });
+ 
+ #### trigger
+    eldObj.trigger("click");            // trigger of the event
  
 #### html
 Rewrite innerHTML.
@@ -353,7 +360,7 @@ Twitter:https://twitter.com/mya_ake
 
 ## Version
 
-0.13.1 (April 24, 2016)
+0.13.2 (April 26, 2016)
 
 ## License
 The MIT License (MIT)
