@@ -25,6 +25,47 @@ Eld.js is a library that is similar to jQuery.
     var eldObjFirst = eldObj.first();           // get first EldObject for EldObject
     var eldObjLast = eldObj.last();             // get last EldObject for EldObject
     
+### Eld Functions
+#### width
+    eld.width();        // get window width 
+    
+#### height
+    eld.height();       // get window height
+    
+#### load
+window onload event
+
+    eld.load(func);
+
+#### resize
+    eld.resize(func);   // add resize event
+    
+#### scroll
+    eld.scroll(func);   // add scroll event
+    
+#### scrollTop
+    eld.scrollTop(duration, adjustTop, easing);     // scroll to window top
+    
+easing
+* ease-out (default)
+* linear
+
+#### blur
+    eld.blur();         // all element
+
+#### interval
+    eld.interval(args);
+
+args(Object)
+
+| args | Type | Description | required |
+|:-----|:-----|:------------|:--------|
+| func | function | processing function | true |
+| time | number | processing interval | true |
+| count | number | repeat count | false |
+| callback | function | callback function | false |
+
+    
 ### EldObject Functions
 #### text
     eldObj.text();            // get
@@ -265,10 +306,6 @@ abort
     });
     eldAjax.abort();
 
-#### load
-window onload event
-
-    eld.load(func);
     
 #### click
     
@@ -283,21 +320,7 @@ window onload event
 
 #### blur
 
-    eld.blur();         // all element
     eldObj.blur();      // in element
-
-#### interval
-
-    eld.interval(args);
-
-args(Object)
-
-| args | Type | Description | required |
-|:-----|:-----|:------------|:--------|
-| func | function | processing function | true |
-| time | number | processing interval | true |
-| count | number | repeat count | false |
-| callback | function | callback function | false |
 
 
 #### show
@@ -336,6 +359,51 @@ args(Object)
         unit: "em",         // (default px)
     });
 
+#### screen
+Run when the element is in the screen
+    
+    eldObj.screen(func, [overall]);
+
+Example
+
+    eldOjb.screen(function() {
+        eld.select("area-iamge").fadeIn(800);
+    });
+
+Example Run only once
+
+    eldOjb.screen(function() {
+        eld.select("area-iamge").fadeIn(800);
+        return false;
+    });
+
+#### screenOut
+Run when the element is out the screen
+    
+    eldObj.screenOut(func, [overall]);
+
+Example
+
+    eldOjb.screenOut(function() {
+        eld.select("area-iamge").fadeIn(800);
+    });
+
+Example Run only once
+
+    eldOjb.screenOut(function() {
+        eld.select("area-iamge").fadeIn(800);
+        return false;
+    });
+
+
+
+#### scrollTop
+    eldObj.scrollTop(duration, adjustTop, easing);     // scroll to first element top
+    
+easing
+* ease-out (default)
+* linear
+
 
 ## Method chaining
     
@@ -367,7 +435,7 @@ Twitter:https://twitter.com/mya_ake
 
 ## Version
 
-0.13.2 (April 26, 2016)
+0.14.0 (April 30, 2016)
 
 ## License
 The MIT License (MIT)
