@@ -270,6 +270,11 @@ window onload event
 
     eld.load(func);
     
+#### click
+    
+    eldObj.click();         // trigger of the click event for all element
+    eldObj.click(func);     // add click event
+
 #### focus
     
     eldObj.focus();         // focus last element
@@ -317,16 +322,18 @@ args(Object)
 
     eldObj.slideIn({
         duration: 2000,     // (default 0)
-        x: 200px,           // x-axis (default 0)
-        y: 300px            // y-axis (default 0)
+        x: 20,              // x-axis (default 0)
+        y: 30,              // y-axis (default 0)
+        unit: "em",         // (default px)
     });
 
 #### slideOut
 
     eldObj.slideOut({
         duration: 2000,     // (default 0)
-        x: 200px,           // x-axis (default 0)
-        y: 300px            // y-axis (default 0)
+        x: 20,              // x-axis (default 0)
+        y: 30,              // y-axis (default 0)
+        unit: "em",         // (default px)
     });
 
 
