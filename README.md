@@ -10,28 +10,29 @@ Eld.js is a library that is similar to jQuery.
     var eldObj = eld.selectName(name, [element]);          // name
     var eldObj = eld.selectTag(tagName, [element]);        // Tag Name
     var eldObj = eld.selectClass(className, [element]);    // Class
-    
+
 ### Create
     var eldObj = eld.create(tagName, [element]);    // Create DOM and EldObject
     var eldObj = eld.createEldObject(element);      // Create EldObject
+    var eldObj = eld.obj(element);                  // Create EldObject
 
 ### Get Elements
     var element = eldObj.elems[index];          // elements
     var element = eldObj.get(index);            // elements
     var eldObjNumber = eldObj.getEld(index);    // get index EldObject for EldObject
     var eldObjFind = eldObj.find(query);        // get query EldObject for EldObject (The same as the eld.select)
-    var eldObjParent = eldObj.parent();         // get parent EldObject for EldObject  
+    var eldObjParent = eldObj.parent();         // get parent EldObject for EldObject
     var eldObjChildren = eldObj.children();     // get children EldObject for EldObject
     var eldObjFirst = eldObj.first();           // get first EldObject for EldObject
     var eldObjLast = eldObj.last();             // get last EldObject for EldObject
-    
+
 ### Eld Functions
 #### width
-    eld.width();        // get window width 
-    
+    eld.width();        // get window width
+
 #### height
     eld.height();       // get window height
-    
+
 #### load
 window onload event
 
@@ -39,13 +40,13 @@ window onload event
 
 #### resize
     eld.resize(func);   // add resize event
-    
+
 #### scroll
     eld.scroll(func);   // add scroll event
-    
+
 #### scrollTop
     eld.scrollTop(duration, adjustTop, easing);     // scroll to window top
-    
+
 easing
 * ease-out (default)
 * linear
@@ -65,7 +66,7 @@ args(Object)
 | count | number | repeat count | false |
 | callback | function | callback function | false |
 
-    
+
 ### EldObject Functions
 #### text
     eldObj.text();            // get
@@ -76,11 +77,11 @@ args(Object)
     eldObj.val();               // get
     eldObj.val("value text");   // set
     eldObj.val(function(element, index) {return "value text"});    // set
-    
+
 #### nval
     eldObj.nval();              //get return number or NaN
 
-   
+
 #### gval
 For Select List, Radio, Checkbox
 
@@ -88,7 +89,7 @@ For Select List, Radio, Checkbox
     eldObj.gval("value");     // set
     eldObj.gval(["value1", "value2"]);  // set
     eldObj.gval("value1,value2");       // set
-    
+
 #### style
     eldObj.style();                 // get all
     eldObj.style("color");          // get
@@ -102,7 +103,7 @@ For Select List, Radio, Checkbox
     eldObj.attr("id", function(element, index) { return "input-text"});  // set
     eldObj.attr({"id": "input-text", "name": "uesrname"});     // set
 
-    
+
 #### prop
     eldObj.prop("required");    // has attribute (return boolean)
     eldObj.prop("required", true);  // set
@@ -127,7 +128,7 @@ For Select List, Radio, Checkbox
 
 #### animate
     eldObj.animate(args);
-    
+
 args(Object)
 * param (required)
 * duration
@@ -168,15 +169,15 @@ easing(css animation-timing-function property)
     eldObj.event("click", clickEventFunction, false);   // remove event
 
  Bubbling cancellation
- 
+
     eldObj.event("click", function() {
         /** processing **/
         return false;
     });
- 
+
  #### trigger
     eldObj.trigger("click");            // trigger of the event
- 
+
 #### html
 Rewrite innerHTML.
 
@@ -186,21 +187,26 @@ Rewrite innerHTML.
 Insert innerHTML.
 
     eldObj.insertInner(html, [position]);
-    
+
 position
 * before
 * after (default)
 
 #### insertBefore
-Insert outerHTML before. 
+Insert outerHTML before.
 
     eldObj.insertBefore(html);
-    
+
 
 #### insertAfter
 Insert outerHTML after.
 
     eldObj.insertAfter(html);
+
+#### remove
+Remove Element.
+
+    eldObj.remove();
 
 
 #### createChild
@@ -217,7 +223,7 @@ JavaSctipt
             "text": "text1",
             "val": "1",
             "prop" {
-              "selected": true  
+              "selected": true
             }
         },
         {
@@ -225,7 +231,7 @@ JavaSctipt
             "val": "2",
         }
     ];
-    
+
     eld.selectId("area-select")
     .createChild("select")
     .createChild("option", params);
@@ -241,33 +247,33 @@ Result HTML
 
 
 #### merge
- 
+
 Merge EldObject
- 
+
     eldObj.merge(EldObject...);
- 
- 
+
+
 Example
- 
+
     var eldObj1 = eld.create("div");
     var eldObj2 = eld.create("div");
     var eldObj3 = eld.create("div");
-    
+
     var eldObj1And2 = eldObj1.merge(eldObj2);
     var eldObj1And2And3 = eldObj1.merge(eldObj2, eldObj3);
 
 #### width
 
     eldObj.width();         // get
-    eldObj.width("p");      // get padding-right + padding-left 
-    eldObj.width("b");      // get border-right-width + border-left-width 
+    eldObj.width("p");      // get padding-right + padding-left
+    eldObj.width("b");      // get border-right-width + border-left-width
     eldObj.width("cpbm");   // get content + padding + border + margin
 
 #### height
 
     eldObj.height();         // get
-    eldObj.height("m");      // get margin-top + margin-bottom 
-    eldObj.height("cp");      // get content + padding 
+    eldObj.height("m");      // get margin-top + margin-bottom
+    eldObj.height("cp");      // get content + padding
     eldObj.height("cpbm");   // get content + padding + border + margin
 
 #### offset
@@ -306,14 +312,14 @@ abort
     });
     eldAjax.abort();
 
-    
+
 #### click
-    
+
     eldObj.click();         // trigger of the click event for all element
     eldObj.click(func);     // add click event
 
 #### focus
-    
+
     eldObj.focus();         // focus last element
     eldObj.focus(number);   // focus number element
 
@@ -335,9 +341,9 @@ abort
 #### fadeIn
 
     eldObj.fadeIn(duration);
-    
+
 #### fadeOut
-    
+
     eldObj.fadeOut(duration);
 
 
@@ -361,7 +367,7 @@ abort
 
 #### screen
 Run when the element is in the screen
-    
+
     eldObj.screen(func, [overall]);
 
 Example
@@ -379,7 +385,7 @@ Example Run only once
 
 #### screenOut
 Run when the element is out the screen
-    
+
     eldObj.screenOut(func, [overall]);
 
 Example
@@ -399,14 +405,14 @@ Example Run only once
 
 #### scrollTop
     eldObj.scrollTop(duration, adjustTop, easing);     // scroll to first element top
-    
+
 easing
 * ease-out (default)
 * linear
 
 
 ## Method chaining
-    
+
     eld.create("div")
     .createChild("p")
     .text("Sample Text")
@@ -435,7 +441,7 @@ Twitter:https://twitter.com/mya_ake
 
 ## Version
 
-0.14.0 (April 30, 2016)
+0.14.3 (May 19, 2016)
 
 ## License
 The MIT License (MIT)
